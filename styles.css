@@ -1,0 +1,16 @@
+.centro{
+    text-align: center;
+}
+
+.subtitulo{
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 25px
+}
+.texto{
+	font-size: 20px;
+}
+
+.position{
+	margin-left: 250px
+}
