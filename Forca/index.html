@@ -3,50 +3,72 @@
 <head>
     <style type="text/css">
         
+		.corpo{
+			position: relative;
+			width: 20%;
+			margin-left: 1px;
+			float: left;
+			border-right: 3px solid black;
+			
+		}
         #palavra{
             font-weight: bold;
-            font-size: 30px;
-            letter-spacing: 10px;
+            font-size: 50px;
+            letter-spacing: 20px;
             word-wrap: break-word;
+			margin-left: 500px
+			
         }   
-        body{
-            text-align: center;
-            max-width: 700px;
-            width: 50%;
-            margin: auto;
-            border-width: larger;
-            border-style:  double;
-            border-color: black;
-            
-        }
-        #letra{
-            width: 25px;
-            text-transform: uppercase;
-        }      
-    } 
 
-}
+        #letra{
+            width: 30px;
+			height: 15px;	
+            text-transform: uppercase;
+        }
+		#letrasTentadas{
+			font-size: 25px;
+			}
+		#chances{
+			font-size: 25px;
+			}
+		b{
+			font-size: 25px;
+			}
+		#letraJ{
+			align-text: center;
+			width: 
+		}
+		h1{ 
+			font-size: 60px;
+			margin-left: 475px;
+		}
+		
     </style>
-        <title></title>
+        <title> Jogo da Forca</title>
+		
+		
 </head>
     <body>
-
-
-        <div id="palavra"></div>
-        <hr />
-        <div id="letrasTentadas"></div>
-         
-        <div id="chances"></div>
-        <hr/>
-        
-        <div>
+		
+		<h1>Jogo da Forca</h1>
+		
+			<div id="palavra"></div>
+			
+		<div class="corpo">	
+			<div id="letrasTentadas"></div>
+			<hr/>
+			<div id="chances"></div>
+			<hr/>
             <b> Letra:</b>
             <input type="text" id="letra"  maxlength="1" value=""></input>
             <div>
-        <input type="submit" onclick="tentativa(document.getElementById('letra').value)" value="Tentar" />
-        <button onclick="dica()">Dica</button>
+			<hr/>
+			<input type="submit" id="letraJ" onclick="tentativa(document.getElementById('letra').value)" value="Tentar" />
+			<button onclick="dica()">Dica</button>
+			
             </div>
-        </div>    
+			<br>
+		</div>    
         <script type="text/javascript">
             var palavras = ["ABACATE", "ABACAXI", "ABIU", "ABRUNHO", "ABUTUA", "ACEROLA", "ACHACHAIRU","AJURU", "AKEE", "AMEIXA","AMORA", "ANTIDESMA", "APIRANGA", "ARICURI", "ARIRI", "ATEMOIA", "AVOCADO", "BABACO","BACABA", "BACURI", "BACURIPARI", "BALATA", "BANANA", "BARU", "BILIMBI", "BURITI", "CABELUDINHA", "CACAU", "CAFEZINHO", "CAGAITA", "CAINITO", "CAJU", "CALABAÇA", "CALABURA", "CALAMONDIN","CAMBUCI", "CAMUTIM", "CANISTEL","CAQUI", "CARAMBOLA", "CARAMURI", "CARISSA", "CEREJA", "CHAMPEDAKE", "CHERIMOIA", "CIRIGUELA", "COCO", "CONDESSA", "CRANBERRY","CUBIU", "CUPUAÇU", "CURUBA", "CUTITE", "DAMASCO", "DURIAN", "ESFREGADINHA", "FEIJOA", "FIGO", "FRAMBOESA", "GLYCOSMIS", "GOIABA", "GRANADILHA", "GRAVIOLA", "GROSELHA", "GRUMIXAMA", "GUABIJU", "GUABIROBA", "GUAÇATUNGA", "GUACHAMACA", "GUAGILOTE", "GUAMIRIM","JABUTICABA", "JACA", "JAMBO", "JAMBOLÃO","JUJUBA", "KINO", "KUMQUAT", "LACUCHA", "LANDIN", "LARANJA", "LICHIA", "LOBEIRA", "LONGAN", "LUCUMA", "LULO", "MABOLO", "MAMEY", "MANGA", "MANGABA", "MARMELO", "MAROLO", "MELANCIA", "MIRTILO", "MORANGO", "MURICI", "MURUMURU", "NARANJILLA", "NECTARINA", "NÊSPERA", "NONI", "ORANGELO", "PEQUI", "PERA", "PHYSALIS", "PINHA","PITAIA", "PITANGATUBA", "PIXIRICA", "POMELO", "PULASAN", "PUPUNHA", "RAMBAI", "RANDIA", "RUKAM", "SACHAMANGO", "SAGUARAJI", "SALAK", "SANTOL", "SAPOTI", "SAPUCAIA", "SORVA", "TAIUVA", "TAMARINDO", "TANGERINA", "TANGOR","TATAJUBA", "TORANJA", "TOTAI", "TUCUM","UCHUVA", "UMBU", "UMBUGUELA","UVA", "UVAIA", "UXI", "WAMPI"];
             
@@ -99,7 +121,6 @@
                     atualizarChances();
                 }
             }
-
             function atualizarJogo() {
                 
                 document.getElementById("palavra").innerHTML = jogo;
