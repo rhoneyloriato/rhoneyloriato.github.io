@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type="text/css">
-		.display{
-			display: block;
-		}
-		#palavra{
-			font-weight: bold;
-			font-size: 30px;
-			letter-spacing: 10px;
-			word-wrap: break-word;
-		}	
-		body{
-			text-align: center;
-		}
-		#letra{
-			width: 25px;
-			text-transform: uppercase;
+    <style type="text/css">
+        
+        #palavra{
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: 10px;
+            word-wrap: break-word;
+        }   
+        body{
+            text-align: center;
+            max-width: 700px;
+            width: 50%;
+            margin: auto;
+            border-width: larger;
+            border-style:  double;
+            border-color: black;
+            
+        }
+        #letra{
+            width: 25px;
+            text-transform: uppercase;
+        }      
+    } 
 
-		}
-	</style>
-	<title></title>
+}
+    </style>
+        <title></title>
 </head>
-<body>
-	<button onclick="iniciar()"> Iniciar</button>
-	<p id="palavra" class="display"></p>
-	<hr/>
-	Letra:
-	<input type="text" id="letra"  maxlength="1" value=""></input>
-	<button onclick="tentar(letra.value || null)">OK</button><button onclick="dica()">Dica</button>
-	
-	<script type="text/javascript">
-		var palavras = ["ABACATE", "ABACAXI", "ABIU", "ABRUNHO", "ABUTUA", "AÇAÍ", "ACEROLA", "ACHACHAIRU", "ACHUÁ", "AGUAÍ", "AJURU", "AKEE", "AMEIXA", "AMÊNDOA", "AMORA", "ANTIDESMA", "APIRANGA", "ARAÇÁ", "ARICURI", "ARIRI", "ATEMOIA", "AVELÃ", "AVOCADO", "BABACO", "BABAÇU", "BACABA", "BACURI", "BACURIPARI", "BALATA", "BANANA", "BARU", "BILIMBI", "BIRIBÁ", "BURANHÉM", "BURITI", "BUTIÁ", "CABELUDINHA", "CACAU", "CAFEZINHO", "CAGAITA", "CAINITO", "CAJÁ", "CAJU", "CALABAÇA", "CALABURA", "CALAMONDIN", "CAMBUCÁ", "CAMBUCI", "CAMUTIM", "CANISTEL", "CAQUI", "CARAMBOLA", "CARAMURI", "CARISSA", "CEREJA", "CHAMPEDAKE", "CHERIMOIA", "CIRIGUELA", "COCO", "CONDESSA", "CRANBERRY", "CRUÁ", "CUBIU", "CUPUAÇU", "CURUBA", "CUTITE", "DAMASCO", "DENDÊ", "DURIAN", "ESFREGADINHA", "FEIJOA", "FIGO", "FRAMBOESA", "GLYCOSMIS", "GOIABA", "GRANADILHA", "GRAVIOLA", "GROSELHA", "GRUMIXAMA", "GUABIJU", "GUABIROBA", "GUAÇATUNGA", "GUACHAMACA", "GUAGILOTE", "GUAMIRIM", "GUARANÁ", "HEISTÉRIA", "IMBÉ", "INAJÁ", "JABUTICABA", "JACA", "JAMBO", "JAMBOLÃO", "JARACATIÁ", "JATOBÁ", "JUÁ", "JUJUBA", "KINO", "KUMQUAT", "LACUCHA", "LANDIN", "LARANJA", "LICHIA", "LOBEIRA", "LONGAN", "LUCUMA", "LULO", "MABOLO", "MAÇÃ", "MACADÂMIA", "MAMÃO", "MAMEY", "MANGA", "MANGABA", "MANGOSTÃO", "MARACUJÁ", "MARMELO", "MAROLO", "MELANCIA", "MELÃO", "MIRTILO", "MORANGO", "MURICI", "MURUMURU", "NARANJILLA", "NECTARINA", "NÊSPERA", "NONI", "ORANGELO", "PAJURÁ", "PATAUÁ", "PEQUI", "PERA", "PÊSSEGO", "PHYSALIS", "PINDAÍVA", "PINHA", "PINHÃO", "PISTÁCHIO", "PITAIA", "PITANGATUBA", "PIXIRICA", "POMELO", "PUÇÁ", "PULASAN", "PUPUNHA", "RAMBAI", "RAMBUTÃO", "RANDIA", "ROMÃ", "RUKAM", "SACHAMANGO", "SAGUARAJI", "SALAK", "SANTOL", "SAPOTI", "SAPUCAIA", "SAPUTÁ", "SORVA", "TAIUVA", "TÂMARA", "TAMARINDO", "TANGERINA", "TANGOR", "TAPEREBÁ", "TAPIÁ", "TARUMÃ", "TATAJUBA", "TORANJA", "TOTAI", "TUCUJÁ", "TUCUM", "TUCUMÃ", "UARÁ", "UBUÇU", "UCHUVA", "UMBU", "UMBUGUELA", "UMÊ", "UVA", "UVAIA", "UXI", "WAMPI", "XIXÁ"];
-		
-	var qtde = palavras.length -1;
-	var tamv = qtde.length;
-	var n = Math.round(Math.random() *qtde);
-	var selecionarpalavra = palavras[n];
-	jogo = "_".repeat(selecionarpalavra.length);
-	defineletras(selecionarpalavra.length);	
-		
-		
-	function iniciar(){
-		n = Math.round(Math.random() * qtde);
-		selecionarpalavra = palavras[n];
-		jogo = "_".repeat(selecionarpalavra.length);
-		defineletras(selecionarpalavra.length);
+    <body>
 
-	}
 
-	function defineletras(t){
-				
-		document.getElementById("palavra").innerHTML = jogo;
-	}
-	function dica(){
-		alert(selecionarpalavra);
-	}
-	function tentar(letraParametro){
-		
-		console.log(letraParametro);
-		if(!letraParametro){
-			alert("insira alguma letra");
-		}
-		else{
+        <div id="palavra"></div>
+        <hr />
+        <div id="letrasTentadas"></div>
+         
+        <div id="chances"></div>
+        <hr/>
+        
+        <div>
+            <b> Letra:</b>
+            <input type="text" id="letra"  maxlength="1" value=""></input>
+            <div>
+        <input type="submit" onclick="tentativa(document.getElementById('letra').value)" value="Tentar" />
+        <button onclick="dica()">Dica</button>
+            </div>
+        </div>    
+        <script type="text/javascript">
+            var palavras = ["ABACATE", "ABACAXI", "ABIU", "ABRUNHO", "ABUTUA", "ACEROLA", "ACHACHAIRU","AJURU", "AKEE", "AMEIXA","AMORA", "ANTIDESMA", "APIRANGA", "ARICURI", "ARIRI", "ATEMOIA", "AVOCADO", "BABACO","BACABA", "BACURI", "BACURIPARI", "BALATA", "BANANA", "BARU", "BILIMBI", "BURITI", "CABELUDINHA", "CACAU", "CAFEZINHO", "CAGAITA", "CAINITO", "CAJU", "CALABAÇA", "CALABURA", "CALAMONDIN","CAMBUCI", "CAMUTIM", "CANISTEL","CAQUI", "CARAMBOLA", "CARAMURI", "CARISSA", "CEREJA", "CHAMPEDAKE", "CHERIMOIA", "CIRIGUELA", "COCO", "CONDESSA", "CRANBERRY","CUBIU", "CUPUAÇU", "CURUBA", "CUTITE", "DAMASCO", "DURIAN", "ESFREGADINHA", "FEIJOA", "FIGO", "FRAMBOESA", "GLYCOSMIS", "GOIABA", "GRANADILHA", "GRAVIOLA", "GROSELHA", "GRUMIXAMA", "GUABIJU", "GUABIROBA", "GUAÇATUNGA", "GUACHAMACA", "GUAGILOTE", "GUAMIRIM","JABUTICABA", "JACA", "JAMBO", "JAMBOLÃO","JUJUBA", "KINO", "KUMQUAT", "LACUCHA", "LANDIN", "LARANJA", "LICHIA", "LOBEIRA", "LONGAN", "LUCUMA", "LULO", "MABOLO", "MAMEY", "MANGA", "MANGABA", "MARMELO", "MAROLO", "MELANCIA", "MIRTILO", "MORANGO", "MURICI", "MURUMURU", "NARANJILLA", "NECTARINA", "NÊSPERA", "NONI", "ORANGELO", "PEQUI", "PERA", "PHYSALIS", "PINHA","PITAIA", "PITANGATUBA", "PIXIRICA", "POMELO", "PULASAN", "PUPUNHA", "RAMBAI", "RANDIA", "RUKAM", "SACHAMANGO", "SAGUARAJI", "SALAK", "SANTOL", "SAPOTI", "SAPUCAIA", "SORVA", "TAIUVA", "TAMARINDO", "TANGERINA", "TANGOR","TATAJUBA", "TORANJA", "TOTAI", "TUCUM","UCHUVA", "UMBU", "UMBUGUELA","UVA", "UVAIA", "UXI", "WAMPI"];
+            
+            var qtde = palavras.length -1;
+            var tamv = qtde.length;
+            var n = Math.round(Math.random() *qtde);
+            var selecionarpalavra = palavras[n];
+            jogo = "_".repeat(selecionarpalavra.length);
+            var letrasTentadas = []; 
+            var chance = 7;  
+            defineletras(selecionarpalavra.length);    
+            atualizarChances();
+            
+            function defineletras(t){
+                        
+                document.getElementById("palavra").innerHTML = jogo;
+            }
+            function dica(){
+                alert(selecionarpalavra);
+            }
+            
+            function tentativa(letra) {
+                resetarTentativa(); 
+                if (!jogo.includes("_")){
+                    return;        
+                }
+                if (chance <= 0) {
+                    alert("Você Perdeu");
+                    return;        
+                }
+                if (!letra.match(/^[a-zA-Z]+$/) || letra == "") {
+                    alert("Caractere invalido");
+                    return;
+                }
+                var tent = letra.toUpperCase();
+            
+                if (letrasTentadas.includes(tent)) {
+                    alert("Essa letra ja foi usada!");
+                    return;
+                }
+                letrasTentadas.push(tent);
+                atualizarLetrasTentadas();
+            
+                if (padronizaStr(selecionarpalavra).includes(tent)) {
+                
+                    jogo = jogo.replaceAt(tent);         
+                    atualizarJogo();
+                } else {
+                    chance--;
+                    atualizarChances();
+                }
+            }
 
-			letraParametro = letraParametro.uppercase();
-
-		}
-	}
-	</script>
-</body>
+            function atualizarJogo() {
+                
+                document.getElementById("palavra").innerHTML = jogo;
+                if (padronizaStr(selecionarpalavra) == jogo) {
+                    alert("Parabéns Você Ganhou, Pressiona F5 para jogar novamente");
+                    chances = 0;
+                }
+            }
+            String.prototype.replaceAt = function(replacement) {
+                var novoTexto = this;
+                var palavraPadronizada = padronizaStr(selecionarpalavra);
+                
+                for(var i = 0; i < palavraPadronizada.length; i++) {
+                    if (palavraPadronizada[i] === replacement) {
+                        novoTexto = novoTexto.substr(0, i) + palavraPadronizada[i] + novoTexto.substr(i + 1);
+                    }
+                }
+                return novoTexto;
+            }
+            function atualizarChances() {
+                    document.getElementById("chances").innerHTML = "<b>Chances:</b> " + chance;   
+                if (chances <= 0) {
+                    feedback("<u>Você perdeu, recarregue a página para jogar novamente!</u>");
+                }
+            }
+                
+            function atualizarLetrasTentadas() {
+                document.getElementById("letrasTentadas").innerHTML = "<b>Letras tentadas:</b> " + letrasTentadas;
+            }
+            function resetarTentativa() {
+                var tentativaComponente = document.getElementById("letra");
+                tentativaComponente.value = "";
+                tentativaComponente.focus();
+            }
+            function padronizaStr(str) {
+              str = str.toLowerCase();
+              return str.toUpperCase();
+            }
+        </script>
+    </body>
 </html>
