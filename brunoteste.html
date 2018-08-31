@@ -42,7 +42,7 @@
     jogo = "_".repeat(selecionarpalavra.length);
     defineletras(selecionarpalavra.length); 
     var letrasTentadas = []; 
-    var chances = 10;  
+    var chance = 10;  
         
     function iniciar(){
         n = Math.round(Math.random() * qtde);
@@ -64,7 +64,8 @@
         return;        
     }
 
-    if (chances <= 0) {
+    if (chance <= 0) {
+        alert("Você Perdeu");
         return;        
     }
 
@@ -76,7 +77,7 @@
     var tent = letra.toUpperCase();
     
     if (letrasTentadas.includes(tent)) {
-        feedback("Essa letra ja foi usada!");
+        alert("Essa letra ja foi usada!");
         return;
     }
     letrasTentadas.push(tent);
@@ -84,12 +85,10 @@
     
     if (padronizaStr(selecionarpalavra).includes(tent)) {
         
-        
         jogo = jogo.replaceAt(tent);         
         atualizarJogo();
     } else {
-        feedback("<font color='red'>Errou!</font>");
-        chances--;
+        chance--;
         atualizarChances();
     }
 }
@@ -98,7 +97,7 @@ function atualizarJogo() {
     document.getElementById("palavra").innerHTML = jogo;
 
     if (padronizaStr(selecionarpalavra) == jogo) {
-        feedback("<h2><font color='green'>Parabéns! Você ganhou!</font></h2>");
+        alert("Parabéns Você Ganhou");
         chances = 0;
     }
 }
