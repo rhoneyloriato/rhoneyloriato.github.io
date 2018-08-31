@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +23,7 @@
 </head>
 <body>
     <button onclick="iniciar()"> Iniciar</button>
-    <p id="palavra"></p>
+    <div id="palavra"></div>
     <hr />
         <div id="letrasTentadas"></div>
         <hr /> <br />
@@ -84,8 +83,9 @@
     atualizarLetrasTentadas();
     
     if (padronizaStr(selecionarpalavra).includes(tent)) {
-        feedback("<font color='green'>Acertou!</font>");
-        jogo = jogo.replaceAt(tent); 
+        
+        
+        jogo = jogo.replaceAt(tent);         
         atualizarJogo();
     } else {
         feedback("<font color='red'>Errou!</font>");
@@ -94,6 +94,7 @@
     }
 }
 function atualizarJogo() {
+    
     document.getElementById("palavra").innerHTML = jogo;
 
     if (padronizaStr(selecionarpalavra) == jogo) {
@@ -119,9 +120,6 @@ function atualizarLetrasTentadas() {
     document.getElementById("letrasTentadas").innerHTML = "<b>Letras tentadas:<br /></b> " + letrasTentadas;
 }
 
-function feedback(texto) {
-    document.getElementById("feedback").innerHTML = texto;
-}
 function resetarTentativa() {
     var tentativaComponente = document.getElementById("letra");
     tentativaComponente.value = "";
