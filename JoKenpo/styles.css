@@ -1,0 +1,49 @@
+.centro{
+	text-align: center;
+}
+
+.imagem{
+	display: none;
+	width:150px; 
+	height: 150px;
+}
+
+.painel1{
+	width: 500px;
+	height: 300px;
+}
+.imagens1{
+	position: absolute;
+	top: 250px;
+	left: 200px;
+}
+.buttons1{
+	position: absolute;
+	top: 275px;
+
+}
+#label1{
+	position: absolute;
+	top: 150px;
+	left:200px;
+}
+
+#label2{
+	position: absolute;
+	top:150px;
+	left: 1000px;
+}
+#imagens3{
+	position: absolute;
+	top: 250px;
+	left: 575px;
+	width:150px; 
+	height: 150px;
+}
+.imagens2{
+	position: absolute;
+	top: 250px;
+	left: 975px;
+	width:150px; 
+	height: 150px;
+}

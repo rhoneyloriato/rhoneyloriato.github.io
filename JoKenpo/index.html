@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>JoKenPo</title>
+	</head>
+	<body>
+		<div>
+			<div class="centro">
+				<img src="images/jokenpo.jpg">
+			</div>
+			<div class="painel1">
+				<br>
+					<h2 id = "label1">Player 1</h2>
+				<div class="buttons1">
+					<button id="1" onclick="selecionar(0)">Pedra</button><br><br>
+					<button id="2" onclick="selecionar(1)">Papel</button><br><br>
+					<button id="3" onclick="selecionar(2)">Tesoura</button>
+				</div>
+
+				<div class="imagens1">
+					<img src="images/pedra.png" id="pedra" class="imagem" value="pedra">
+					<img src="images/tesoura.png" id="tesoura" class="imagem" value= "tesoura">
+					<img src="images/papel.png" id="papel" class="imagem" value="papel">	
+				</div>
+			</div>
+			<div>
+				<img src="images/x1.png" id="imagens3">
+			</div>
+			<div class="painel2"></div>
+			 	<h2 id="label2">Maquina</h2>
+			 	<div class="imagens2">
+					<img src="images/pedra.png" id="pedra2" class="imagem">
+					<img src="images/tesoura.png" id="tesoura2" class="imagem">
+					<img src="images/papel.png" id="papel2" class="imagem">	
+				</div>
+			</div>
+			<div>
+				<button id="4" onclick="init()"> JOGAR</button>
+			</div>
+			<div id = "resultado">
+				
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
+
