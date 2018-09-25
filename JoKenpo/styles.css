@@ -6,6 +6,7 @@
 	display: none;
 	width:150px; 
 	height: 150px;
+
 }
 
 .painel1{
@@ -39,6 +40,7 @@
 	left: 575px;
 	width:150px; 
 	height: 150px;
+
 }
 .imagens2{
 	position: absolute;
@@ -46,4 +48,11 @@
 	left: 975px;
 	width:150px; 
 	height: 150px;
+}
+#dados{
+	text-align: center;
+	font-size: 40px;
+}
+button{
+	width: 60px;
 }
