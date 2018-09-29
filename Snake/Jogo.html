@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Jogo </title>
+
+</head>
+
+<body>
+	<div class="centro">
+				<img src="snake.png" width="200"  height="200">
+			</div>
+	<div class="imagens1">
+				<img src="especial.png" width="200"  height="200">
+			</div>	
+	<div class = "result" id = "resultado">
+	</div>	
+	<div class="centro">
+	<canvas id="stage" width="400"  height="400" ></canvas>
+	</div>
+	
+	<script type="text/javascript">
+		window.onload = function(){
+			var stage = document.getElementById('stage');
+			var ctx = stage.getContext("2d");
+			document.addEventListener("keydown", keypush);
+			setInterval(game, 1000/13);
+
+			const vel = 1;
+
+			var vx = vy = 0;
+			var px = py = 10;
+			var tp = 20;
+			var qp = 20;
+			var ax = ay = 15;
+			var trail = [];
+			tail = 1;
+			var maImg = new Image();
+			function game(){
+				px += vx;
+				py += vy;
+				if(px<0){
+					px = qp-1;
+				}
+				if(px>qp-1){
+					px=0;
+				}
+				if(py<0){
+					py = qp-1;
+				}
+				if(py > qp-1){
+					py = 0;
+				}
+
+
+			ctx.fillStyle = "#009933";
+			ctx.fillRect(0,0, stage.width, stage.height);	
+
+    			maImg.src = "ma.png";
+    			ctx.drawImage(maImg, ax*tp, ay*tp);  
+				
+
+			ctx.fillStyle = "#FF3399";
+			for (var i = 0; i < trail.length ; i++) {
+				ctx.fillRect(trail[i].x*tp, trail[i].y*tp, tp, tp);
+				if(trail[i].x == px && trail[i].y == py){
+					vx = vy = 0;
+					tail = 1;
+					document.getElementById("resultado").innerHTML = "Tamanho: " + tail;
+				}
+			}
+				trail.push({x:px,y:py})
+				while(trail.length > tail){
+					trail.shift();
+				}
+				if(ax==px && ay==py){
+					tail ++;
+					document.getElementById("resultado").innerHTML = "Tamanho: " + tail;
+					ax = Math.floor(Math.random()*qp);
+					ay = Math.floor(Math.random()*qp);
+				}
+
+		}
+
+
+		function keypush(event){
+			switch (event.keyCode){
+				case 37:
+					vx = -vel;
+					vy = 0;
+					break;
+
+					case 38:
+					vx = 0;
+					vy = -vel;
+					break;
+
+					case 39:
+					vx = vel;
+					vy = 0;
+					break;
+
+					case 40:
+					vx = 0;
+					vy = vel;
+					break;
+					default:
+					break;
+			}
+		}
+		}
+ </script>
+</body>
+
+</html>

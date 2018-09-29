@@ -1,0 +1,25 @@
+body{
+	background: url("selvas.jpg");
+	background-repeat: no-repeat;
+	background-size:100%; 
+	background-attachment: scroll;
+}
+
+.centro{
+	text-align: center;
+}
+
+.imagens1{
+	position: absolute;
+	top: 300px;
+	left: 200px;
+}
+
+.result{
+	position: absolute;
+	top: 350px;
+	left: 1000px;
+	text-align: center;
+	font-size: 40px;
+	color: red;
+}
