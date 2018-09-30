@@ -47,7 +47,7 @@
 					document.getElementById("resultado").innerHTML = "Tamanho: " + calda;
 				}
 			}
-				trail.push({x:px,y:py})
+				rastro.push({x:px,y:py})
 				while(rastro.length > calda){
 					rastro.shift();
 				}
