@@ -11,8 +11,8 @@
 			var tp = 20;
 			var qp = 20;
 			var ax = ay = 15;
-			var trail = [];
-			tail = 1;
+			var rastro = [];
+			calda = 1;
 			var maImg = new Image();
 			function game(){
 				px += vx;
@@ -39,21 +39,21 @@
 				
 
 			ctx.fillStyle = "#FF3399";
-			for (var i = 0; i < trail.length ; i++) {
-				ctx.fillRect(trail[i].x*tp, trail[i].y*tp, tp, tp);
-				if(trail[i].x == px && trail[i].y == py){
+			for (var i = 0; i < rastro.length ; i++) {
+				ctx.fillRect(rastro[i].x*tp, rastro[i].y*tp, tp, tp);
+				if(rastro[i].x == px && rastro[i].y == py){
 					vx = vy = 0;
-					tail = 1;
-					document.getElementById("resultado").innerHTML = "Tamanho: " + tail;
+					calda = 1;
+					document.getElementById("resultado").innerHTML = "Tamanho: " + calda;
 				}
 			}
 				trail.push({x:px,y:py})
-				while(trail.length > tail){
-					trail.shift();
+				while(rastro.length > calda){
+					rastro.shift();
 				}
 				if(ax==px && ay==py){
-					tail ++;
-					document.getElementById("resultado").innerHTML = "Tamanho: " + tail;
+					calda ++;
+					document.getElementById("resultado").innerHTML = "Tamanho: " + calda;
 					ax = Math.floor(Math.random()*qp);
 					ay = Math.floor(Math.random()*qp);
 				}
