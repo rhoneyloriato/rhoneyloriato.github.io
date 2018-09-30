@@ -12,7 +12,7 @@
 			var qp = 20;
 			var ax = ay = 15;
 			var rastro = [];
-			calda = 1;
+			var calda = 1;
 			var maImg = new Image();
 			function game(){
 				px += vx;
