@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>FORMULARIO</title>
+</head>
+<body>
+	<br><br>
+	<div class="centro">
+	FORMULARIO<br><br>
+	<h3>Nome:<input type="text" id="nome" name="text1"></h3>
+	
+	</div><br>
+	<div class="centro">
+		<h3>Texto:</h3>
+	<textarea id="mudou"></textarea>
+	</div>
+
+	<div class="imagens1" >
+		<h3>Data Ultima Visita:</h3>
+	<input type="text" id="data1" name="data1" readonly="readonly" size="65">
+
+	<div class="imagens" >
+		<h3>Data Hoje:</h3>
+	<input type="text" id="data2" name="data2" readonly="readonly" size="65">
+	
+	</div><br>
+
+</body>
+
+<script>
+	var formNome = document.getElementById('nome');
+	console.log(formNome);
+	
+	formNome.addEventListener('change',
+		function(){
+			console.log("asd");
+			var str = formNome.value;
+			localStorage.setItem('nome',str);
+	},false);
+	
+
+	var existe = localStorage.getItem('nome');
+	if(existe){
+		formNome.value = existe;
+	}
+
+	var textA = document.getElementById('mudou');
+	console.log(textA);
+	textA.addEventListener('change',
+		function(){
+			var string = textA.value;
+			localStorage.setItem('texto',string);
+	},false);
+	var jaTem = localStorage.getItem('texto');
+	if(jaTem){
+		textA.value = jaTem;
+	}
+	var data1 = document.getElementById('data1');
+	var data2 = document.getElementById('data2');
+	var dat = new Date();
+	data2.value = dat;
+	//console.log(data1);
+	//dat.addEventListener('change',
+	//	function(){
+	//		var aff = data1.value;
+	//		localStorage.setItem('data1',aff);
+	//},false);
+	var datem = localStorage.getItem('data2');
+	if(datem){
+		data1.value = datem;
+		var aff = data2.value;
+		localStorage.setItem('data2',aff);
+
+		
+	}
+	else{
+		var aff = data2.value;
+		localStorage.setItem('data2',aff);
+	}
+</script>
+</html>

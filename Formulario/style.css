@@ -1,0 +1,22 @@
+body{
+	background: url("fundo.jpg");
+	background-repeat: no-repeat;
+	background-size:100%; 
+	background-attachment: scroll;
+}
+
+.centro{
+	text-align: center;
+}
+
+.imagens1{
+	position: absolute;
+	top: 30px;
+	left: 900px;
+}
+
+.imagens2{
+	position: absolute;
+	top: 60px;
+	left: 1000px;
+}
