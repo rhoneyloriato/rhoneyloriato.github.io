@@ -15,7 +15,6 @@ function bubbleSort(a) {
 
 
 self.addEventListener('message', function(e) {
-    console.log("cheguei no bubble");
     var array = e.data;
     bubbleSort(array);
  	self.postMessage(array);
