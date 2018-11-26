@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body >
+	
+	<div  style="text-align: center">
+		<br><br>
+		<video  id="video1" width="200" height="280" >
+			<source src="banheiro.mp4" type="video/mp4" mute/>
+		</video>
+		<div id="controls">
+			<button onclick="play()"><i class="fas fa-play"></i></button>
+			<button onclick="pause()"><i class="fas fa-pause"></i></button>
+			<button onclick="reload()" ><i class="fas fa-redo-alt"></i></button>
+			<button onclick="mute()"><i class="fas fa-volume-mute"></i></button>
+			<button onclick="desmute()"><i class="fas fa-volume-up"></i> </button> 
+		</div>
+
+	<script type="text/javascript">
+		var myVideo = document.getElementById("video1");
+
+		myVideo.addEventListener('timeupdate', function(){console.log("currenTime = " + myVideo.currentTime);
+	},false);
+		function play()
+		{
+			myVideo.play();    	    	
+		}
+		function pause()
+		{
+			myVideo.pause();
+		}
+		function mute()
+		{ 
+			myVideo.muted = true;
+		}
+		function desmute()
+		{
+			myVideo.muted = false;
+		}
+		function reload()
+		{
+			myVideo.load();
+			myVideo.play();
+		}
+		
+	</script>
+</body>
+</html>
