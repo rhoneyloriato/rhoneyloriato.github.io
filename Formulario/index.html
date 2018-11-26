@@ -24,8 +24,10 @@
 		<h3>Data Hoje:</h3>
 	<input type="text" id="data2" name="data2" readonly="readonly" size="55">
 	
-	</div><br>
-
+	</div><br><br><br><br>
+	<div>	
+		<input type="button" value="Clear storage" onClick="ClearStorage()">
+		</div>
 </body>
 
 <script>
@@ -60,12 +62,7 @@
 	var data2 = document.getElementById('data2');
 	var dat = new Date();
 	data2.value = dat;
-	//console.log(data1);
-	//dat.addEventListener('change',
-	//	function(){
-	//		var aff = data1.value;
-	//		localStorage.setItem('data1',aff);
-	//},false);
+	
 	var datem = localStorage.getItem('data2');
 	if(datem){
 		data1.value = datem;
@@ -78,5 +75,10 @@
 		var aff = data2.value;
 		localStorage.setItem('data2',aff);
 	}
+	function ClearStorage()
+{
+localStorage.clear();
+alert("No of items in local storage is " + localStorage.length);
+}
 </script>
 </html>
