@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+	<style type="text/css">
+		body{
+			background-color: black;
+			background-image: url("fundo.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		#player{
+
+			background-color: black;
+			margin-left: 350px; 
+			margin-top: 200px;
+			width: 640px;
+			height: 350px;
+		}
+		#controls
+		{
+			background-color: gray;
+			margin-left: 350px;
+			width: 640px;	
+		}
+		#video1{
+			width: 500px;
+			height:  275px;
+
+		}
+	</style>
+</head>
+<body>
+	<div  id="player" >
+		
+		
+	</div>
+
+		<div id="controls">
+			<button onclick="stepbackward()"><i class="fas fa-step-backward"></i></button>
+			<button type="button" onclick="play()"><i class="fas fa-play"></i></button>
+			<button onclick="pause()"><i class="fas fa-pause"></i></button>
+			<button onclick="reload()" ><i class="fas fa-redo-alt"></i></button>
+			<button onclick="stepforward()"><i class="fas fa-step-forward"></i></button>
+			<button onclick="mute()"><i class="fas fa-volume-mute"></i></button>
+			<button onclick="desmute()"><i class="fas fa-volume-up"></i> </button> 
+		</div>
+	<script type="text/javascript">
+
+		var tag = document.createElement('script');
+
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			
+			
+		var player;
+		function onYouTubeIframeAPIReady() {
+	    	player = new YT.Player('player', {
+	        height: '390',
+	        width: '640',
+	        videoId: 'MfwrqP-6rE8',
+	        events: {
+	            'onReady': onPlayerReady,
+	            'onStateChange': onPlayerStateChange
+	        }
+			});
+		}
+		
+		var videoPlaylist = ['MfwrqP-6rE8','TmUGwK_43Tk','C6MOKXm8x50'];
+		function onPlayerReady(event) {
+	    	event.target.playVideo();
+	    	player.setLoop(true);
+	    	player.loadPlaylist({playlist:videoPlaylist
+            });
+		}
+
+		var done = false;
+		function onPlayerStateChange(event){
+	    	if (event.data == YT.PlayerState.PLAYING && !done) {
+	        	//setTimeout(stopVideo, 6000);
+	        	//done = true;
+	     
+	    	}
+		}
+
+
+		function play(){
+			player.playVideo();    	    	
+		}
+
+		function pause(){
+			player.pauseVideo();
+		}
+		function mute(){ 
+			player.mute();
+		}
+
+		function desmute(){
+			player.unMute();
+		}
+
+		function reload(){
+			player.loadPlaylist({playlist:videoPlaylist
+            });		
+		}
+
+		function stepforward(){
+			 player.nextVideo();
+		}
+			
+
+		function stepbackward(){
+	      player.previousVideo();
+	    }	
+
+	</script>
+</body>
+</html>
